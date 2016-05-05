@@ -19,6 +19,9 @@ import java.util.function.IntConsumer;
 public class Task3 implements Runnable{
 	private BufferedReader br;
 	
+	/**
+	 * initialize task3.
+	 */
 	public Task3(){
 		try {
 			br = new BufferedReader( new InputStreamReader(Dictionary.getWordsAsStream()) );
@@ -28,6 +31,9 @@ public class Task3 implements Runnable{
 		}
 	}
 	
+	/**
+	 * run task3
+	 */
 	@Override
 	public void run() {
 		long totalsize = 0;
@@ -47,6 +53,10 @@ public class Task3 implements Runnable{
 		out.printf("Average length of %,d words is %.2f\n",counter.getCount(), counter.average() );
 	}
 	
+	/**
+	 * Return about this task doing.
+	 * @return return what is this task doing.
+	 */
 	public String toString(){
 		return "read words using BufferedReader and Stream";
 	}

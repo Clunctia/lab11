@@ -13,6 +13,9 @@ import java.io.InputStreamReader;
 public class Task2 implements Runnable{
 	private BufferedReader br;
 	
+	/**
+	 * initialize task2.
+	 */
 	public Task2(){
 		try {
 			br = new BufferedReader( new InputStreamReader(Dictionary.getWordsAsStream()) );
@@ -22,6 +25,10 @@ public class Task2 implements Runnable{
 		}
 	}
 	
+	
+	/**
+	 * run task2.
+	 */
 	@Override
 	public void run() {
 		// initialize: open the words file as InputStream
@@ -43,6 +50,10 @@ public class Task2 implements Runnable{
 		}
 	}
 	
+	/**
+	 * Return about this task doing.
+	 * @return return what is this task doing.
+	 */
 	public String toString(){
 		return "read words using BufferedReader.readLine() with a loop";
 	}

@@ -12,10 +12,10 @@ import java.util.Comparator;
 public class StudentApp {
 
 	/**
-	 * Print the names (and birthdays) of students having a birtday in the
+	 * Print the names (and birthdays) of students having a birthday in the
 	 * specified month.
 	 * @param students list of students
-	 * @param month the month to use in selecting bithdays
+	 * @param month the month to use in selecting birthdays
 	 */
 	public void filterAndPrint( List<Student> students, Predicate<Student> filter, Consumer<Student> action, Comparator<Student> byName, Comparator<Student> byBirthday ) {
 		students.stream().filter( filter ).sorted( byBirthday ).forEach(action);
@@ -30,6 +30,11 @@ public class StudentApp {
 		Consumer<Student> action = (s) -> System.out.printf("%s has birthday on %d %s\n", s, s.getBirthdate().getDayOfMonth(), s.getBirthdate().getMonth());
 		StudentApp app = new StudentApp();
 		app.filterAndPrint(students, checkBirthDate, action, byName, byBirthday );
+		
+		//Predicate next two weeks who will have birthday.
+		Predicate<Student> checkNextTwoWeek = (s) -> s.getBirthdate().getDayOfYear() - LocalDate.now().getDayOfYear() <= 14 && s.getBirthdate().getDayOfYear() - LocalDate.now().getDayOfYear() >=0;
+		app.filterAndPrint(students, checkNextTwoWeek, action, byName, byBirthday);
+		
 	}
 
 

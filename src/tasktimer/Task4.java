@@ -16,6 +16,9 @@ import java.util.function.*;
 public class Task4 implements Runnable{
 	private BufferedReader br;
 	
+	/**
+	 * initialize task4
+	 */
 	public Task4(){
 		try {
 			br = new BufferedReader( new InputStreamReader(Dictionary.getWordsAsStream()) );
@@ -25,6 +28,9 @@ public class Task4 implements Runnable{
 		}
 	}
 	
+	/**
+	 * run this task
+	 */
 	@Override
 	public void run() {
 		// We want the Consumer to add to the count and total length,
@@ -50,6 +56,10 @@ public class Task4 implements Runnable{
 		out.printf("Average length of %,d words is %.2f\n", count, averageLength );
 	}
 	
+	/**
+	 * Return about this task doing.
+	 * @return return what is this task doing.
+	 */
 	public String toString(){
 		return "read words using BufferedReader and Stream with Collector";
 	}
